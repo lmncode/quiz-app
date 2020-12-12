@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="./src/style/main.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="wrapper">
+        <div class="select category">
+          <div class="placeholder">Select Category</div>
+          <ul class="options"></ul>
+        </div>
+
+        <div class="select difficulty">
+          <div class="placeholder">Select Difficulty</div>
+          <ul class="options"></ul>
+        </div>
+
+        <button class="btn start" type="submit">Start</button>
+      </div>
+
+      <div class="quiz-section">
+        <div class="info">
+          <div class="life">
+            <i class="fas fa-heart"></i>
+            <i class="fas fa-heart"></i><i class="fas fa-heart"></i>
+          </div>
+          <div class="timer">00</div>
+          <div class="score">100</div>
+        </div>
+        <h1>Quiz</h1>
+      </div>
+    </div>
+
+    <script src="./src/js/variables.js"></script>
+    <script src="./src/js/select.js"></script>
+    <script src="./src/js/index.js"></script>
+  </body>
+</html>
