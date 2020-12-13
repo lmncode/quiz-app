@@ -2,3 +2,27 @@
   background-color: #00263b;
   margin: 5rem;
 }
+
+.info-bar {
+  @include flexCenter;
+  padding: 2rem;
+  justify-content: space-between;
+  //background-color: $color-white;
+
+  & > * {
+    font-size: 3rem;
+    font-weight: 700;
+  }
+
+  .life {
+    color: red;
+  }
+
+  .timer {
+    color: $color-green-light;
+  }
+
+  .score {
+    color: $color-yellow;
+  }
+}

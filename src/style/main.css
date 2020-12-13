@@ -108,4 +108,28 @@ ul {
   background-color: #00263b;
   margin: 5rem; }
 
+.info-bar {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 2rem;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between; }
+  .info-bar > * {
+    font-size: 3rem;
+    font-weight: 700; }
+  .info-bar .life {
+    color: red; }
+  .info-bar .timer {
+    color: #4dd599; }
+  .info-bar .score {
+    color: #ffdc34; }
+
 /*# sourceMappingURL=main.css.map */
