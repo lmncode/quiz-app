@@ -7,12 +7,13 @@ const difficultySelect = document.querySelector(".difficulty");
 const difficultyOptions = difficultySelect.querySelector(".options");
 const difficultyPlaceholder = difficultySelect.querySelector(".placeholder");
 
-const categories = ["JavaScript", "CSS", "HTML"];
+const categories = ["JavaScript", "HTML", "PHP"];
 const difficultyList = ["Easy", "Medium", "Hard"];
 
 const startBtn = document.querySelector(".start");
 let selectedCategory;
 let selectedDifficulty;
+const warning = document.querySelector(".warning");
 
 //timer
 const timerText = document.querySelector(".timer span");

@@ -1,5 +1,6 @@
 .wrapper {
   @include flexCenter;
+  flex-wrap: wrap;
 }
 
 .select {
