@@ -1,3 +1,4 @@
+//select
 const categorySelect = document.querySelector(".category");
 const categoryOptions = categorySelect.querySelector(".options");
 const categoryPlaceholder = categorySelect.querySelector(".placeholder");
@@ -12,3 +13,7 @@ const difficultyList = ["Easy", "Medium", "Hard"];
 const startBtn = document.querySelector(".start");
 let selectedCategory;
 let selectedDifficulty;
+
+//timer
+const timerText = document.querySelector(".timer span");
+let remainingTime = 20;

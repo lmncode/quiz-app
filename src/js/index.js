@@ -5,6 +5,8 @@ difficultyList.map((difficulty) =>
   renderList(difficultyOptions, difficulty, difficultyPlaceholder)
 );
 
+timerText.textContent = remainingTime;
+
 startBtn.addEventListener("click", startQuiz);
 
 function startQuiz(e) {
@@ -13,4 +15,5 @@ function startQuiz(e) {
   selectedDifficulty = difficultyOptions.dataset.value;
   console.log(selectedCategory);
   console.log(selectedDifficulty);
+  timer();
 }
