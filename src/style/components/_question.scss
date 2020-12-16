@@ -1,0 +1,22 @@
+.answers {
+  margin-top: 2rem;
+  max-width: 60rem;
+  min-width: 30rem;
+  border-radius: 5px;
+
+  li {
+    max-width: 60rem;
+    padding: 1rem;
+    font-size: 2rem;
+    background-color: rgba($color-turquoise, 0.2);
+    margin-bottom: 1rem;
+    box-shadow: 0 3px 5px $color-blue-dark;
+    color: $color-turquoise-light;
+    border-radius: 3px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: rgba($color-turquoise, 0.5);
+    }
+  }
+}

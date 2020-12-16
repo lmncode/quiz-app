@@ -22,6 +22,7 @@ async function startQuiz(e) {
     return;
   }
 
+  //fetch questions
   let questions = await getQuestions(selectedCategory, selectedDifficulty);
 
   // timer();
