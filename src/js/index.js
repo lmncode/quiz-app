@@ -23,9 +23,44 @@ async function startQuiz(e) {
   }
 
   //fetch questions
-  let questions = await getQuestions(selectedCategory, selectedDifficulty);
+  questions = await getQuestions(selectedCategory, selectedDifficulty);
+  console.log(questions);
+  renderQuestion(questions[questionIndex]);
 
   // timer();
 }
 
 startBtn.addEventListener("click", startQuiz);
+
+function renderQuestion(item) {
+  //render question
+  question.textContent = item.question;
+
+  //define correct answer
+  for (const [correctAnswerKey, correctAnswerValue] of Object.entries(
+    item.correct_answers
+  )) {
+    if (correctAnswerValue === "true") correctAnswer = correctAnswerKey;
+  }
+
+  for (const [answerKey, answerValue] of Object.entries(item.answers)) {
+    if (answerValue) {
+      //check answer is not null
+      const listItem = document.createElement("li");
+      listItem.textContent = answerValue;
+      //listItem.dataset.answer = key;
+      listItem.addEventListener("click", () => onAnswerCLick(answerKey));
+      answerList.appendChild(listItem);
+    }
+  }
+}
+
+function onAnswerCLick(answer) {
+  answerList.textContent = "";
+  if (correctAnswer.replace("_correct", "") === answer) {
+    questionIndex++;
+    renderQuestion(questions[questionIndex]);
+  } else {
+    console.log("wrong answer");
+  }
+}

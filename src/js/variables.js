@@ -18,3 +18,10 @@ const warning = document.querySelector(".warning");
 //timer
 const timerText = document.querySelector(".timer span");
 let remainingTime = 20;
+
+//question
+let questions;
+let questionIndex = 0;
+let correctAnswer;
+const question = document.querySelector(".question");
+const answerList = document.querySelector(".answers");
