@@ -57,6 +57,7 @@ function renderQuestion(item) {
 function onAnswerCLick(answer) {
   answerList.textContent = "";
   if (correctAnswer.replace("_correct", "") === answer) {
+    scoreText.textContent = calcScore();
     next();
   } else {
     wrongAnswer++;
@@ -64,7 +65,7 @@ function onAnswerCLick(answer) {
     if (wrongAnswer < 3) {
       next();
     } else {
-      clearInterval(timerId);
+      clearInterval(timerId)
       openModal();
     }
   }
@@ -72,15 +73,16 @@ function onAnswerCLick(answer) {
 
 function changeHeartColor() {
   for (let i = 0; i < wrongAnswer; i++) {
-    console.log(wrongAnswer, i);
     hearts.children[i].style.color = "rgba(255,0,0,0.5)";
   }
 }
 
 function next() {
+  clearInterval(timerId);
   questionIndex++;
   remainingTime = 20;
   renderQuestion(questions[questionIndex]);
+  timer();
 }
 
 function openModal() {
@@ -92,6 +94,9 @@ function closeModal() {
 }
 
 function getCoins() {
-  console.log(coins);
   return remainingTime + coins;
+}
+
+function calcScore() {
+  return (score += getCoins());
 }

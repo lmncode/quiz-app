@@ -39,4 +39,7 @@ console.log(hearts);
 //modal
 const modal = document.querySelector(".modal");
 
+//score
 let coins;
+const scoreText = document.querySelector(".score span");
+let score = 0;
