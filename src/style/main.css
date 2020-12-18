@@ -183,7 +183,10 @@ ul {
       -ms-flex-align: center;
           align-items: center; }
   .modal .content {
-    text-align: center; }
+    padding: 3rem;
+    text-align: center;
+    background-color: #000000;
+    border-radius: 3px; }
 
 .modal.active {
   top: 0; }

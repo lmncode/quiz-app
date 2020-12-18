@@ -9,7 +9,11 @@
   @include flexCenter;
 
   .content {
+    padding: 3rem;
     text-align: center;
+    background-color: $color-black;
+    border-radius: 3px;
+    //background-color: $color-blue-dark;
   }
 }
 

@@ -1,5 +1,5 @@
 function timer() {
-  const timerId = setInterval(() => {
+  timerId = setInterval(() => {
     remainingTime--;
     timerText.textContent = `${
       remainingTime < 10 ? `0${remainingTime}` : remainingTime

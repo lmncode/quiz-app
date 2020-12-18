@@ -8,7 +8,11 @@ const difficultyOptions = difficultySelect.querySelector(".options");
 const difficultyPlaceholder = difficultySelect.querySelector(".placeholder");
 
 const categories = ["JavaScript", "HTML", "PHP"];
-const difficultyList = ["Easy", "Medium", "Hard"];
+const difficultyList = [
+  { difficulty: "Easy", coins: 10 },
+  { difficulty: "Medium", coins: 20 },
+  { difficulty: "Hard", coins: 30 },
+];
 
 const startBtn = document.querySelector(".start");
 let selectedCategory;
@@ -18,6 +22,7 @@ const warning = document.querySelector(".warning");
 //timer
 const timerText = document.querySelector(".timer span");
 let remainingTime = 20;
+let timerId;
 
 //question
 let questions;
@@ -33,3 +38,5 @@ console.log(hearts);
 
 //modal
 const modal = document.querySelector(".modal");
+
+let coins;

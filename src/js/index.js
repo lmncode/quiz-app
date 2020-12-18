@@ -2,9 +2,10 @@
 categories.map((category) =>
   renderList(categoryOptions, category, categoryPlaceholder)
 );
-difficultyList.map((difficulty) =>
-  renderList(difficultyOptions, difficulty, difficultyPlaceholder)
-);
+difficultyList.map((difficulty) => {
+  console.log(difficulty);
+  renderList(difficultyOptions, difficulty, difficultyPlaceholder);
+});
 timerText.textContent = remainingTime;
 
 //start quiz
@@ -26,7 +27,7 @@ async function startQuiz(e) {
   questions = await getQuestions(selectedCategory, selectedDifficulty);
   renderQuestion(questions[questionIndex]);
 
-  // timer();
+  timer();
 }
 
 startBtn.addEventListener("click", startQuiz);
@@ -60,10 +61,10 @@ function onAnswerCLick(answer) {
   } else {
     wrongAnswer++;
     changeHeartColor();
-    console.log(wrongAnswer);
     if (wrongAnswer < 3) {
       next();
     } else {
+      clearInterval(timerId);
       openModal();
     }
   }
@@ -78,6 +79,7 @@ function changeHeartColor() {
 
 function next() {
   questionIndex++;
+  remainingTime = 20;
   renderQuestion(questions[questionIndex]);
 }
 
@@ -87,4 +89,9 @@ function openModal() {
 
 function closeModal() {
   modal.classList.remove("active");
+}
+
+function getCoins() {
+  console.log(coins);
+  return remainingTime + coins;
 }

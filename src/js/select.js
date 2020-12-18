@@ -1,11 +1,18 @@
 function renderList(list, item, placeholder) {
   const listItem = document.createElement("li");
   listItem.className = "option";
-  listItem.textContent = item;
-
+  if (typeof item === "object") {
+    listItem.textContent = item.difficulty;
+  } else {
+    listItem.textContent = item;
+  }
   listItem.addEventListener("click", () => {
-    placeholder.textContent = item;
-    list.dataset.value = item;
+    placeholder.textContent = listItem.textContent;
+    list.dataset.value = placeholder.textContent.toLowerCase();
+
+    if (item.coins) {
+      coins = item.coins;
+    }
   });
   list.appendChild(listItem);
 }
