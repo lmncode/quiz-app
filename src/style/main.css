@@ -209,8 +209,19 @@ ul {
     .quiz-section .info-bar > * {
       font-size: 3rem;
       font-weight: 700; }
-    .quiz-section .info-bar .life {
-      color: red; }
+    .quiz-section .info-bar .hearts {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center; }
+      .quiz-section .info-bar .hearts li {
+        margin-right: 0.6rem;
+        color: red; }
     .quiz-section .info-bar .timer {
       color: #4dd599; }
     .quiz-section .info-bar .score {

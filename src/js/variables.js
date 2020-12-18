@@ -25,3 +25,8 @@ let questionIndex = 0;
 let correctAnswer;
 const question = document.querySelector(".question");
 const answerList = document.querySelector(".answers");
+
+//heartIcon
+let lostHeartCount = 0;
+const hearts = document.querySelector(".hearts");
+console.log(hearts);

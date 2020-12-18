@@ -13,8 +13,13 @@
       font-weight: 700;
     }
 
-    .life {
-      color: red;
+    .hearts {
+      @include flexCenter;
+
+      li {
+        margin-right: 0.6rem;
+        color: red;
+      }
     }
 
     .timer {

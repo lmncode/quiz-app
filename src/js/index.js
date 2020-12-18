@@ -48,7 +48,6 @@ function renderQuestion(item) {
       //check answer is not null
       const listItem = document.createElement("li");
       listItem.textContent = answerValue;
-      //listItem.dataset.answer = key;
       listItem.addEventListener("click", () => onAnswerCLick(answerKey));
       answerList.appendChild(listItem);
     }
@@ -61,6 +60,14 @@ function onAnswerCLick(answer) {
     questionIndex++;
     renderQuestion(questions[questionIndex]);
   } else {
-    console.log("wrong answer");
+    lostHeartCount++;
+    changeHeartColor();
+  }
+}
+
+function changeHeartColor() {
+  for (let i = 0; i < lostHeartCount; i++) {
+    console.log(lostHeartCount, i);
+    hearts.children[i].style.color = "rgba(255,0,0,0.5)";
   }
 }
