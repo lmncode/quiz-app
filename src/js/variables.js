@@ -27,6 +27,9 @@ const question = document.querySelector(".question");
 const answerList = document.querySelector(".answers");
 
 //heartIcon
-let lostHeartCount = 0;
+let wrongAnswer = 0;
 const hearts = document.querySelector(".hearts");
 console.log(hearts);
+
+//modal
+const modal = document.querySelector(".modal");

@@ -169,7 +169,7 @@ ul {
   position: absolute;
   width: 100%;
   height: 100%;
-  top: 0;
+  top: -100%;
   left: 0;
   background-color: rgba(0, 0, 0, 0.7);
   z-index: 3;
@@ -181,10 +181,12 @@ ul {
           justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
-          align-items: center;
-  display: none; }
+          align-items: center; }
   .modal .content {
     text-align: center; }
+
+.modal.active {
+  top: 0; }
 
 .quiz-section {
   background-color: #00263b;

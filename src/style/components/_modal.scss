@@ -2,14 +2,17 @@
   position: absolute;
   width: 100%;
   height: 100%;
-  top: 0;
+  top: -100%;
   left: 0;
   background-color: rgba($color-black, 0.7);
   z-index: 3;
   @include flexCenter;
-  display: none;
 
   .content {
     text-align: center;
   }
+}
+
+.modal.active {
+  top: 0;
 }

@@ -24,7 +24,6 @@ async function startQuiz(e) {
 
   //fetch questions
   questions = await getQuestions(selectedCategory, selectedDifficulty);
-  console.log(questions);
   renderQuestion(questions[questionIndex]);
 
   // timer();
@@ -57,17 +56,35 @@ function renderQuestion(item) {
 function onAnswerCLick(answer) {
   answerList.textContent = "";
   if (correctAnswer.replace("_correct", "") === answer) {
-    questionIndex++;
-    renderQuestion(questions[questionIndex]);
+    next();
   } else {
-    lostHeartCount++;
+    wrongAnswer++;
     changeHeartColor();
+    console.log(wrongAnswer);
+    if (wrongAnswer < 3) {
+      next();
+    } else {
+      openModal();
+    }
   }
 }
 
 function changeHeartColor() {
-  for (let i = 0; i < lostHeartCount; i++) {
-    console.log(lostHeartCount, i);
+  for (let i = 0; i < wrongAnswer; i++) {
+    console.log(wrongAnswer, i);
     hearts.children[i].style.color = "rgba(255,0,0,0.5)";
   }
+}
+
+function next() {
+  questionIndex++;
+  renderQuestion(questions[questionIndex]);
+}
+
+function openModal() {
+  modal.classList.add("active");
+}
+
+function closeModal() {
+  modal.classList.remove("active");
 }
