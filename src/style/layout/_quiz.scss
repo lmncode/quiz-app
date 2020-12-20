@@ -1,12 +1,14 @@
 .quiz-section {
-  background-color: #00263b;
+  background-color: $color-turquoise-dark;
   margin: 5rem;
   height: 100%;
+
   .info-bar {
     @include flexCenter;
     padding: 2rem;
     justify-content: space-between;
     box-shadow: 0 3px 6px rgba($color-black, 0.4);
+    margin-bottom: 0.5rem;
 
     & > * {
       font-size: 3rem;
@@ -18,12 +20,19 @@
 
       li {
         margin-right: 0.6rem;
-        color: red;
+        color: $color-red;
+      }
+
+      .lost {
+        color: rgba($color-red, 0.5);
       }
     }
 
     .timer {
       color: $color-green-light;
+      .red {
+        color: $color-red;
+      }
     }
 
     .score {
@@ -35,5 +44,21 @@
     width: 100%;
     @include flexCenter;
     flex-direction: column;
+    background-color: $color-turquoise-dark;
+    position: relative;
+    padding-bottom: 2rem;
+    .loader {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      @include flexCenter;
+      font-size: 4rem;
+      color: $color-orange;
+      visibility: hidden;
+      &.active {
+        visibility: visible;
+      }
+    }
   }
 }

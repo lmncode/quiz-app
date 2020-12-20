@@ -1,6 +1,13 @@
 .wrapper {
   @include flexCenter;
   flex-wrap: wrap;
+  transition: 0.4s;
+  height: 10rem;
+
+  &.hide {
+    height: 0;
+    visibility: hidden;
+  }
 }
 
 .select {

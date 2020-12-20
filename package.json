@@ -19,5 +19,8 @@
   "homepage": "https://github.com/lmncode/quiz-app#readme",
   "devDependencies": {
     "lite-server": "^2.6.1"
+  },
+  "dependencies": {
+    "axios": "^0.21.0"
   }
 }

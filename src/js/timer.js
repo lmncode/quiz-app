@@ -1,11 +1,15 @@
 function timer() {
   timerId = setInterval(() => {
     remainingTime--;
-    timerText.textContent = `${
-      remainingTime < 10 ? `0${remainingTime}` : remainingTime
-    }`;
+
+    if (remainingTime < 10) {
+      timerText.classList.add("red");
+      timerText.textContent = `0${remainingTime}`;
+    } else {
+      timerText.textContent = remainingTime;
+    }
     if (remainingTime < 1) {
-      clearInterval(timerId);
+      onWrongAnswer();
     }
   }, 1000);
 }

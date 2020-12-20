@@ -18,5 +18,12 @@
     &:hover {
       background-color: rgba($color-turquoise, 0.5);
     }
+
+    &.correct {
+      color: $color-green-light;
+    }
+    &.wrong {
+      color: $color-red;
+    }
   }
 }

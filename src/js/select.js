@@ -8,7 +8,7 @@ function renderList(list, item, placeholder) {
   }
   listItem.addEventListener("click", () => {
     placeholder.textContent = listItem.textContent;
-    list.dataset.value = placeholder.textContent.toLowerCase();
+    list.dataset.value = placeholder.textContent;
 
     if (item.coins) {
       coins = item.coins;

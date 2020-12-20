@@ -1,20 +1,39 @@
+function reset() {
+  question.textContent = "";
+  answerList.textContent = "";
+  remainingTime = time;
+  wrongAnswer = 0;
+  score = 0;
+  firstClick = true;
+
+  timerText.textContent = remainingTime;
+  scoreText.textContent = score;
+  startBtn.disabled = false;
+  hearts
+    .querySelectorAll("li")
+    .forEach((item) => item.classList.remove("lost"));
+  wrapperSelect.classList.remove("hide");
+  timerText.classList.remove("red");
+  changeHeartColor();
+  closeModal();
+}
+reset();
+
 //render select options
 categories.map((category) =>
   renderList(categoryOptions, category, categoryPlaceholder)
 );
-difficultyList.map((difficulty) => {
-  console.log(difficulty);
-  renderList(difficultyOptions, difficulty, difficultyPlaceholder);
-});
-timerText.textContent = remainingTime;
+difficultyList.map((difficulty) =>
+  renderList(difficultyOptions, difficulty, difficultyPlaceholder)
+);
 
 //start quiz
 async function startQuiz(e) {
+  e.preventDefault();
   selectedCategory = categoryOptions.dataset.value;
   selectedDifficulty = difficultyOptions.dataset.value;
   warning.textContent = "";
 
-  e.preventDefault();
   if (!selectedCategory) {
     warning.textContent = "Please select category";
     return;
@@ -23,80 +42,15 @@ async function startQuiz(e) {
     return;
   }
 
+  wrapperSelect.classList.add("hide");
+  startBtn.disabled = true;
+
   //fetch questions
   questions = await getQuestions(selectedCategory, selectedDifficulty);
-  renderQuestion(questions[questionIndex]);
 
+  renderQuestion(questions[questionIndex]);
   timer();
 }
 
+retryBtn.addEventListener("click", reset);
 startBtn.addEventListener("click", startQuiz);
-
-function renderQuestion(item) {
-  //render question
-  question.textContent = item.question;
-
-  //define correct answer
-  for (const [correctAnswerKey, correctAnswerValue] of Object.entries(
-    item.correct_answers
-  )) {
-    if (correctAnswerValue === "true") correctAnswer = correctAnswerKey;
-  }
-
-  for (const [answerKey, answerValue] of Object.entries(item.answers)) {
-    if (answerValue) {
-      //check answer is not null
-      const listItem = document.createElement("li");
-      listItem.textContent = answerValue;
-      listItem.addEventListener("click", () => onAnswerCLick(answerKey));
-      answerList.appendChild(listItem);
-    }
-  }
-}
-
-function onAnswerCLick(answer) {
-  answerList.textContent = "";
-  if (correctAnswer.replace("_correct", "") === answer) {
-    scoreText.textContent = calcScore();
-    next();
-  } else {
-    wrongAnswer++;
-    changeHeartColor();
-    if (wrongAnswer < 3) {
-      next();
-    } else {
-      clearInterval(timerId)
-      openModal();
-    }
-  }
-}
-
-function changeHeartColor() {
-  for (let i = 0; i < wrongAnswer; i++) {
-    hearts.children[i].style.color = "rgba(255,0,0,0.5)";
-  }
-}
-
-function next() {
-  clearInterval(timerId);
-  questionIndex++;
-  remainingTime = 20;
-  renderQuestion(questions[questionIndex]);
-  timer();
-}
-
-function openModal() {
-  modal.classList.add("active");
-}
-
-function closeModal() {
-  modal.classList.remove("active");
-}
-
-function getCoins() {
-  return remainingTime + coins;
-}
-
-function calcScore() {
-  return (score += getCoins());
-}

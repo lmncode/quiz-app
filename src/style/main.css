@@ -14,9 +14,12 @@
   color: #ff5200; }
 
 .quiz-content h2 {
+  padding: 1rem;
+  text-align: center;
   margin-top: 6rem;
   font-size: 4rem;
-  color: #67f1ef; }
+  color: #67f1ef;
+  max-width: 60rem; }
 
 *,
 *::after,
@@ -56,7 +59,13 @@ ul {
       -ms-flex-align: center;
           align-items: center;
   -ms-flex-wrap: wrap;
-      flex-wrap: wrap; }
+      flex-wrap: wrap;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  height: 10rem; }
+  .wrapper.hide {
+    height: 0;
+    visibility: hidden; }
 
 .select {
   position: relative;
@@ -164,6 +173,10 @@ ul {
     cursor: pointer; }
     .answers li:hover {
       background-color: rgba(0, 145, 142, 0.5); }
+    .answers li.correct {
+      color: #4dd599; }
+    .answers li.wrong {
+      color: #ff0000; }
 
 .modal {
   position: absolute;
@@ -210,7 +223,8 @@ ul {
         -ms-flex-pack: justify;
             justify-content: space-between;
     -webkit-box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
-            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4); }
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+    margin-bottom: 0.5rem; }
     .quiz-section .info-bar > * {
       font-size: 3rem;
       font-weight: 700; }
@@ -226,9 +240,13 @@ ul {
               align-items: center; }
       .quiz-section .info-bar .hearts li {
         margin-right: 0.6rem;
-        color: red; }
+        color: #ff0000; }
+      .quiz-section .info-bar .hearts .lost {
+        color: rgba(255, 0, 0, 0.5); }
     .quiz-section .info-bar .timer {
       color: #4dd599; }
+      .quiz-section .info-bar .timer .red {
+        color: #ff0000; }
     .quiz-section .info-bar .score {
       color: #ffdc34; }
   .quiz-section .quiz-content {
@@ -245,6 +263,28 @@ ul {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
-            flex-direction: column; }
+            flex-direction: column;
+    background-color: #00263b;
+    position: relative;
+    padding-bottom: 2rem; }
+    .quiz-section .quiz-content .loader {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+          -ms-flex-pack: center;
+              justify-content: center;
+      -webkit-box-align: center;
+          -ms-flex-align: center;
+              align-items: center;
+      font-size: 4rem;
+      color: #ff5200;
+      visibility: hidden; }
+      .quiz-section .quiz-content .loader.active {
+        visibility: visible; }
 
 /*# sourceMappingURL=main.css.map */
