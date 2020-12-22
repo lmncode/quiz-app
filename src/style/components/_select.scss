@@ -1,16 +1,22 @@
 .wrapper {
   @include flexCenter;
-  flex-wrap: wrap;
+  flex-direction: column;
   transition: 0.4s;
   height: 10rem;
+  padding: 2rem;
 
   &.hide {
     height: 0;
     visibility: hidden;
   }
+
+  .input-group {
+    @include flexCenter;
+  }
 }
 
 .select {
+  z-index: 9;
   position: relative;
   background: linear-gradient($color-turquoise-light, $color-turquoise);
   border-radius: 10px;
@@ -32,6 +38,7 @@
 
 .options {
   position: absolute;
+  z-index: 99;
   top: calc(100% + 1rem);
   right: 0;
   width: 100%;

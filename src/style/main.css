@@ -10,7 +10,8 @@
   font-size: 2.4rem;
   height: 4rem;
   text-align: center;
-  margin-top: 2rem;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
   color: #ff5200; }
 
 .quiz-content h2 {
@@ -48,6 +49,21 @@ ul {
 .container {
   height: 100%; }
 
+@media (max-width: 620px) {
+  html {
+    font-size: 8px; } }
+@media (max-width: 550px) {
+  html {
+    font-size: 6px; }
+
+  body {
+    padding: 2rem; } }
+@media (max-width: 400px) {
+  html {
+    font-size: 5px; }
+
+  body {
+    padding: 1rem; } }
 .wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -58,16 +74,30 @@ ul {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   -webkit-transition: 0.4s;
   transition: 0.4s;
-  height: 10rem; }
+  height: 10rem;
+  padding: 2rem; }
   .wrapper.hide {
     height: 0;
     visibility: hidden; }
+  .wrapper .input-group {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center; }
 
 .select {
+  z-index: 9;
   position: relative;
   background: -webkit-gradient(linear, left top, left bottom, from(#67f1ef), to(#00918e));
   background: linear-gradient(#67f1ef, #00918e);
@@ -88,6 +118,7 @@ ul {
 
 .options {
   position: absolute;
+  z-index: 99;
   top: calc(100% + 1rem);
   right: 0;
   width: 100%;

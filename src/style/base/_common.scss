@@ -27,3 +27,27 @@ ul {
 .container {
   height: 100%;
 }
+
+@media (max-width: 620px) {
+  html {
+    font-size: 8px;
+  }
+}
+
+@media (max-width: 550px) {
+  html {
+    font-size: 6px;
+  }
+  body {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 400px) {
+  html {
+    font-size: 5px;
+  }
+  body {
+    padding: 1rem;
+  }
+}
